@@ -1,72 +1,114 @@
-import React from "react";
+import React from 'react';
+import minus from './Images/minus.png';
+import remove from './Images/delete.png';
+import plus from './Images/plus.png';
 
-const CartItem=(props)=>{
-   
-   /* increaseQuantity=()=>{
-        //this.state.Qty+=1;
-     //this.setState({
-      //  Qty:this.state.Qty + 1,  
-      // });
-       // console.log("this",this.state);
-       this.setState((prevState)=>{
-           return{
-               Qty:prevState.Qty+1
-           }
-       })
+const CartItem = (props) => {
+    /*constructor () {
+        super();
+        this.state = {
+            price: 999,
+            title: 'Phone',
+            qty: 1,
+            img: ''
+        }
+        //this.increaseQuantity = this.increaseQuantity.bind(this)
+        this.testing();
+    }*/
+    /*testing () {
+        const promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('done');
+            }, 5000);
+        })
+        promise.then(() => {
+            this.setState({ qty: this.state.qty + 10});
+            this.setState({ qty: this.state.qty + 10});
+            this.setState({ qty: this.state.qty + 10});
+            console.log('state', this.state);
+        });
+    }*/
+
+    /*increaseQuantity = () => {
+        //console.log('this', this.state);
+        //setState form 1
+        // this.setState({
+        //     qty: this.state.qty+1
+        // });
+
+        //setState form 2 - if prevState req use this
+        this.setState((prevState) => {
+            return{
+                qty: prevState.qty + 1
+            }
+        });
     }
-    decreaseQuantity=()=>{
-        const {Qty}=this.state;
-        if(Qty===0){
+
+    decreaseQuantity = () => {
+        const { qty } = this.state;
+        if(qty === 0){
             return;
         }
-this.setState((prevStated)=>{
-    return{
-      
-        Qty:prevStated.Qty-1
-    }
-
-});
+        this.setState((prevState) => {
+            return{
+                qty: prevState.qty - 1
+            }
+        });
     }*/
-    
-        //console.log("this.props",this.props);
-        const {price,title,Qty}=props.product;
-        const{
-            product,
-            onDecreaseQuantity,
-            onIncreaseQuantity,
-            onDelete,
 
-        }=props
-        return(
-            <div className="cart-item">
-            {/*this.props.jsx*/}
+    // console.log('this.props', this.props);
+    const {price, title, qty} = props.product;
+    const {
+        product,
+        onIncreaseQuantity, 
+        onDecreaseQuantity, 
+        onDeleteProduct
+    } = props;
+    return (
+        <div className="cart-item">
+            {/* {this.props.jsx} */}
             <div className="left-block">
-            <img style={styles.image} src={product.img}/>
+                <img style={styles.image} src={product.img} />
             </div>
             <div className="right-block">
-            <div style={{fontSize:25}}>{title}</div>
-            <div style={{color:"#777"}}>Rs {price}</div>
-            <div style={{color:"#777"}}>Qty: {Qty}</div>
-            <div className="cart-item-actions">
-            {/*button*/}
-            <img alt="increase" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/992/992651.png" onClick={()=>onIncreaseQuantity(product)}/>
-            <img alt="decrease" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/1828/1828906.png" onClick={()=>onDecreaseQuantity(product)}/>
-            <img alt="delete" className="action-icons" src="https://as2.ftcdn.net/v2/jpg/01/90/89/15/1000_F_190891550_N7uKp2aHE3mOc20dmtDytj7atgvbhdOu.jpg" onClick={()=>onDelete(product.id)}/>
+                <div style={ { fontSize: 30} }>{title}</div>
+                <div style={ { color:'#777' } }>Rs {price}</div>
+                <div style={ { color: '#777'} }>Qty: {qty}</div>
+                <div className="cart-item-actions">
+                    
+                    <img 
+                        alt="increase" 
+                        className="actions-icons" 
+                        src={plus} 
+                        //onClick={this.increaseQuantity}
+                        onClick= { () => onIncreaseQuantity(product)}
+                    />
+                    <img 
+                        alt="decrease" 
+                        className="actions-icons" 
+                        src={minus} 
+                        onClick={() => onDecreaseQuantity(product)}
+                    />
+                    <img 
+                        alt="delete" 
+                        className="actions-icons" 
+                        src={remove} 
+                        onClick = {() => onDeleteProduct(product.id)}
+                    />
+
+                </div>
             </div>
-            </div>
-            </div>
-        );
-    
+        </div>
+    );
 }
-const styles={
-     image: {
-height:110,
-width:110,
-borderRadus:4,
-backgroundColor:"#ccc",
+
+const styles = {
+    image: {
+        height:115,
+        width:115,
+        borderRadius:4,
+        background: '#ccc'
     }
 }
+
 export default CartItem;
-
-
-

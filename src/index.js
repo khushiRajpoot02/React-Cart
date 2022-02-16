@@ -2,12 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as firebase from "firebase";
-import "firebase/firestore";
-//import { initializeApp } from "firebase/app";
-//import firebase from 'firebase/app';
-//import 'firebase/<PACKAGE>';
-import { initializeApp } from "firebase/app";
+//import * as serviceWorker from './serviceWorker';
+import * as firebase from 'firebase';
+//import {initializeApp} from 'firebase/app';
+import 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,15 +18,14 @@ const firebaseConfig = {
   messagingSenderId: "1043973469677",
   appId: "1:1043973469677:web:45cf38ce06e04115c4e3e4"
 };
-
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
+//const app = initializeApp(firebaseConfig);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <App />,
   document.getElementById('root')
 );
+//serviceWorker.unregister();
 
 

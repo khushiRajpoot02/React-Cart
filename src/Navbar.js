@@ -1,40 +1,44 @@
-import React from "react";
 
-const Navbar=(props)=>{
-        return(
-            <div style={style.nav}>
-               <div style={style.carIconContainer}>
-                  <img style={style.CartIcon} src="https://cdn-icons.flaticon.com/png/512/2838/premium/2838838.png?token=exp=1644825444~hmac=233d3ffa9cf7bf85e330a34dbe76c4b6" alt="cart-icon">
-                </img>
-                <span style={style.cartCount}>{props.count}</span>
+import React from 'react';
+import cart from './Images/shopping-cart.png';
+
+const Navbar = (props) =>{     
+    return (
+        <div style={styles.nav}>
+            <div style={styles.cartIconContainer}>
+                <img style={styles.cartIcon} src={cart}/>
+                <span style={styles.cartCount}>{props.count}</span>
             </div>
-            </div>
-        );
+        </div>
+    );
 }
-const style={
-    CartIcon:{
-        height:70,
-        marginRight:20,
-    },
-    nav:{
-        height:70,
-        background:"#4267b2",
-        display:"flex",
-        justifyContent:"flex-end",
-        alignItems:"center",
-    },
-    carIconContainer:{
-        position:"relative",
-    },
 
-    cartCount:{
-        background:"red",
-        borderRadius:"20px",
-        padding:"4px,8px",
-        position:"absolute",
-        right:4,
-        top:-4,
-
+const styles = {
+    cartIcon: {
+        height: 32,
+        float: 'right',
+        marginRight: 20,
+        marginTop: 10
+    },
+    nav: {
+        height: 50, 
+        background: '#4267b2',
+        diplay: 'flex',
+        alignItems: 'center'
+    },
+    cartIconContainer: {
+        position: 'relative'
+    },
+    cartCount: {
+        background: 'yellow',
+        borderRadius: '50%',
+        padding: '1px 3px',
+        position: 'absolute',
+        marginTop: 8,
+        marginRight: 4,
+        right: 0,
+        top: -7
     }
-}
+};
+
 export default Navbar;
