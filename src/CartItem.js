@@ -51,7 +51,7 @@ this.setState((prevStated)=>{
             {/*button*/}
             <img alt="increase" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/992/992651.png" onClick={()=>onIncreaseQuantity(product)}/>
             <img alt="decrease" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/1828/1828906.png" onClick={()=>onDecreaseQuantity(product)}/>
-            <img alt="delete" className="action-icons" src="https://cdn-icons.flaticon.com/png/512/2907/premium/2907762.png?token=exp=1644601718~hmac=fc3aea72b98b8a006c1e714559914ca4" onClick={()=>onDelete(product.id)}/>
+            <img alt="delete" className="action-icons" src="https://as2.ftcdn.net/v2/jpg/01/90/89/15/1000_F_190891550_N7uKp2aHE3mOc20dmtDytj7atgvbhdOu.jpg" onClick={()=>onDelete(product.id)}/>
             </div>
             </div>
             </div>
@@ -59,7 +59,7 @@ this.setState((prevStated)=>{
     
 }
 const styles={
-    image: {
+     image: {
 height:110,
 width:110,
 borderRadus:4,
